@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.statistics,
+.history,
+.support,
+.robotControl {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home {
+  display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.robot-cards {
+  width: 50%;
+  height: 92vh;
+  overflow-y: scroll;
+  left: -100%;
+  transition: 350ms;
+}
+
+.robot-cards.active {
+  width: 100%;
+  left: 0;
+  transition: 350ms;
+}
+
+.robot-cards-content {
+  margin: 5%;
+}
+
+.motion-robot {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 23%));
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+}
+
+.robot-card {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content:space-evenly;
+  color: white;
+  flex-direction: column;
+}
+
+.active-robot-card h3 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  font-size: 0.8rem;
+}
+
+
+.robot-card h2 {
+  font-size: 1.2rem;
+}
+
+.robot-map {
+  width: 50%;
+  height: 92vh;
+  display: flex;
+  right: -100%;
+  transition: 350ms;
+  position: fixed;
+}
+
+.robot-map.active {
+  width: 50%;
+  height: 92vh;
+  display: flex;
+  right: 0;
+  transition: 350ms;
+}
+
+
+.map {
+  width: 100%;
+  height: 92vh;
+}
+
+.map-container {
+  width: 100%;
+  height: 92vh;
+}
+
+.infoWindow-data {
+  width: 100px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.infodata-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.infodata-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: absolute;
+  bottom: 10px;
+  left: 1px;
+}
+
+.link-robot-control a {
+  color: #060b26;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 0px 3px;
+  border: 2px solid rgb(28, 36, 53);
+}
+.link-robot-control a:hover {
+  background-color: #060b26;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.home-map-button {
+  height: 3vh;
+  width: 10vh;
+  background-color: white;
+  border-radius: 5px;
+  top : 9vh;
+  position: absolute;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+.filter-container button {
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  min-width: 5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: white;
+  color: #060b26;
+  border-radius: 1rem;
+  border: 2px solid rgb(28, 36, 53);
+  font-weight: bold;
+  cursor: pointer;
+ }
+
+ .filter-container button.active {
+  background: #060b26;
+  color: white
+ }

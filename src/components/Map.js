@@ -110,7 +110,7 @@ export default function Map({ socket }) {
                                 </button>
                                 <div className="link-robot-control">
                                     <Link
-                                        to='/robotControl'
+                                        to='/HIVE_Operator/robotControl'
                                     >
                                         Contrôler
                                     </Link>

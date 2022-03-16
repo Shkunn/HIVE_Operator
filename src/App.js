@@ -14,11 +14,11 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path='/' exact element={<Home />} />
-        <Route path='/history' element={<History />} />
-        <Route path='/statistics' element={<Statistics />} />
-        <Route path='/support' element={<Support />} />
-        <Route path='/robotControl' element={<RobotControl />} />
+        <Route path='/HIVE_Operator/' exact element={<Home />} />
+        <Route path='/HIVE_Operator/history' element={<History />} />
+        <Route path='/HIVE_Operator/statistics' element={<Statistics />} />
+        <Route path='/HIVE_Operator/support' element={<Support />} />
+        <Route path='/HIVE_Operator/robotControl' element={<RobotControl />} />
         {/* <Route path='/sign-up' element={<SignUp />} /> */}
       </Routes>
 

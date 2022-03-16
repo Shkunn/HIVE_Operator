@@ -17,7 +17,7 @@ function RobotControl() {
 
     const navigate = useNavigate();
     const clickHandler = (e) => (
-        navigate("/"),
+        navigate("/HIVE_Operator/"),
         selectRobot('')
     )
 

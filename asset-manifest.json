@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/HIVE_Operator/static/css/main.fd926aa2.css",
+    "main.js": "/HIVE_Operator/static/js/main.381ac35a.js",
+    "index.html": "/HIVE_Operator/index.html",
+    "main.fd926aa2.css.map": "/HIVE_Operator/static/css/main.fd926aa2.css.map",
+    "main.381ac35a.js.map": "/HIVE_Operator/static/js/main.381ac35a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fd926aa2.css",
+    "static/js/main.381ac35a.js"
+  ]
+}

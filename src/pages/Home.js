@@ -4,6 +4,7 @@ import RobotMap from '../components/RobotMap'
 import io from 'socket.io-client'
 
 // const socket = io.connect('http://0.0.0.0:5000')
+
 const socket = io.connect('https://api-devo-docker.herokuapp.com/')
 
 
@@ -15,12 +16,14 @@ function Home() {
     return (
         <div className="home">
             <div className={active ? "robot-cards active" : "robot-cards"}>
-                <button
-                    className='home-map-button'
-                    onClick={() => setActive(!active)}
-                >
-                    {active ? 'Voir la Map' : 'Cacher la Map'}
-                </button>
+                <div className='home-map-button'>
+                    <button
+                        className='home-map-button-container'
+                        onClick={() => setActive(!active)}
+                    >
+                        {active ? 'Voir la Map' : 'Cacher la Map'}
+                    </button>
+                </div>
 
                 <RobotCards socket={socket} />
             </div>

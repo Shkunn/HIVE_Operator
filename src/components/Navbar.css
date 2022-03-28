@@ -2,7 +2,7 @@
     background-color: #060b26;
     height: 8vh;
     display: flex;
-    /* justify-content: flex-start; */
+    justify-content: center;
     align-items: center;
   }
   
@@ -10,6 +10,10 @@
     margin-left: 2rem;
     font-size: 2rem;
     background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 
   .navbar_data {
@@ -100,6 +104,105 @@
   .pCommand {
     font-size: 2rem;
     margin-left: 35px;
+  }
+
+  .robotName {
+    color: white;
+    font-size: 2rem;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .navbar_data-robotControl {
+    display: flex;
+    margin-left: auto;
+    justify-content: space-around;
+    width: 70%;
+    font-size: 2rem;
+    align-items: center;
+  }
+
+  .navbar-data-alert-robotControl {
+    display: flex;
+    align-items: center;
+    color: red;
+  }
+  .icon-alert-robotControl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+  }
+  .icon-alert-robotControl p {
+    font-size: 1rem;
+  }
+  .pAlert-robotControl {
+    font-size: 2rem;
+    margin-left: 35px;
+  }
+
+  .navbar-bell-robotControl {
+    display: flex;
+    align-items: center;
+    color: white;
+    /* background-color: rebeccapurple; */
+  }
+  .icon-bell-robotControl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+  }
+  .pBell-robotControl {
+    font-size: 1.2rem;
+    background-color: red;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative;
+    bottom: 8px;
+    right: 20px;
+    border-radius: 999px;
+  }
+  .pBell-robotControl p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-status-robotControl {
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+  }
+  .pStatus-robotControl {
+    position: relative;
+    left: 50px;
+    font-size: 1.5rem;
+  }
+
+  .navbar-distance-robotControl {
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+  }
+  .pDistance-robotControl {
+    position: relative;
+    left: 50px;
+    font-size: 1.5rem;
+  }
+
+  .navbar-latency-robotControl {
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+  }
+  .pLatency-robotControl {
+    position: relative;
+    left: 50px;
+    font-size: 1.5rem;
   }
 
   

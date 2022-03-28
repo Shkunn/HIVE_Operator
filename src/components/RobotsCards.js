@@ -62,8 +62,6 @@ function RobotsCards({ socket }) {
                 setActiveCategory={setActiveCategory}
             />
 
-            {/* {console.log(filtered)} */}
-
             <motion.div layout className="motion-robot">
                 <AnimatePresence>
                     {filtered.map((robot, index) => {

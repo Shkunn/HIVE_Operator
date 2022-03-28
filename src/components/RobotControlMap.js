@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { useLoadScript } from "@react-google-maps/api"
-import Map from './Map'
+import RobotMap from './MapRobotControl'
 
-function RobotMap({socket}) {
+function RobotControlMap({ robot }) {
 
     const [ libraries ] = useState(['places']);
-
 
 
     const { isLoaded } = useLoadScript({
@@ -17,8 +16,8 @@ function RobotMap({socket}) {
 
 
     return (
-        <Map socket={socket} />
+        <RobotMap robot={robot} />
     )
 }
 
-export default RobotMap
+export default RobotControlMap

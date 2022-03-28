@@ -41,6 +41,8 @@ function RobotData({ robot, socket }) {
 
         socket.on('MESSAGE_operator', (data) => {
 
+            // console.log(data)
+
             Object.keys(data).map((obj, index) => {
                 if (robot['name'] === obj) {
                     setThisRobot(data[obj])

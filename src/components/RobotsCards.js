@@ -36,6 +36,7 @@ function RobotsCards({ socket }) {
     useEffect(() => {
         socket.on('operator_data', (data) => {
             setRobotData(data);
+            // console.log(data)
 
             data.map((robot, index) => {
                 if (robot['connection'] === 'ON') {

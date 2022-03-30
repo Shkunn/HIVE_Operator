@@ -6,14 +6,11 @@ import Statistics from './pages/Statistics';
 import Navbar from "./components/Navbar";
 import Support from "./pages/Support";
 import RobotControl from "./pages/RobotControl";
-import { AnimatePresence } from "framer-motion";
 
 
 function App() {
   return (
     <Router>
-      
-      <Navbar />
 
       <Routes>
         <Route path='/HIVE_Operator/' exact element={<Home />} />

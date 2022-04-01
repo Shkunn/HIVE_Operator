@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux'
 
 
 
-function Navbar({ data }) {
+function Navbar({ data, socket }) {
 
     const [sidebar, setSidebar] = useState(false);
     // const [data, setData] = useState('Offline')
@@ -39,6 +39,8 @@ function Navbar({ data }) {
     //         // count = 0;
     //     })
     // }, [])
+
+    socket.emit('stream_active', [robotSelected.robot['name'], 'TRUE'])
 
 
     return (
@@ -102,7 +104,7 @@ function Navbar({ data }) {
                         {SidebarData.map((item, index) => {
                             return (
                                 <li key={index} className={item.cName}>
-                                    <Link to={item.path}>
+                                    <Link to={item.path} onClick={socket.emit('stream_active', [robotSelected.robot['name'], 'FALSE'])}>
                                         {item.icon}
                                         <span>{item.title}</span>
                                     </Link>

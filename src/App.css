@@ -195,9 +195,22 @@
   margin-right: auto;
   margin-left: auto;
   position: relative;
-  top: 10%;
+  top: 5%;
   width: 40vw;
-  height: 50vh;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(28, 36, 53);
+}
+
+.stream-div-lidar {
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  top: 9%;
+  width: 30vw;
+  height: 35vh;
   display: flex;
   align-items: center;
   justify-content: center;

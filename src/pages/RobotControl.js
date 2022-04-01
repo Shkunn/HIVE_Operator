@@ -75,13 +75,22 @@ function RobotControl() {
     var angle = 0;
 
 
-    const [vari, setVari] = useState('')
+    const [streamVideo, setStreamVideo] = useState('')
+    const [streamLidar, setStreamLidar] = useState('')
 
     useEffect(() => {
 
         socket.emit('operator_interface', "123")
-        socket.on('test', (data) => {
-            setVari(data)
+
+        socket.on('streamVideo', (data) => {
+            setStreamVideo(data)
+            console.log(data)
+        })
+
+
+        socket.on('streamLidar', (data) => {
+            setStreamLidar(data)
+            console.log(data)
         })
 
 
@@ -175,7 +184,7 @@ function RobotControl() {
     return (
 
         <>
-            <NavbarControlRobot data={data} />
+            <NavbarControlRobot data={data} socket={socket} />
             < div className="robotControl" >
                 <div className="left">
                     <div className="control-div">
@@ -410,7 +419,7 @@ function RobotControl() {
 
                             streamActive ?
                                 <>
-                                    <img src={vari} style={{ width: '100%', height: '100%', objectFit: 'fill' }} />
+                                    <img src={streamVideo} style={{ width: '100%', height: '100%', objectFit: 'fill' }} />
 
                                     <div className="stream-button-on">
                                         <button
@@ -423,6 +432,43 @@ function RobotControl() {
                                             Couper le stream
                                         </button>
                                     </div>
+                                </>
+
+                                :
+
+                                <div className="stream-button-off">
+                                    <button
+                                        style={{ padding: 20 }}
+                                        onClick={() => {
+                                            setStreamActive(true)
+                                            socket.emit('stream_active', [robotSelected.robot['name'], 'TRUE'])
+                                        }}
+                                    >
+                                        Lancer le stream de {robotSelected.robot['name']}
+                                    </button>
+                                </div>
+
+                            :
+
+                            <div className="stream-robot-notconnected">
+                                <span style={{ fontSize: 30 }}>
+                                    {robotSelected.robot['name']} est déconnecté.
+                                </span>
+                                <span style={{ fontSize: 15, marginTop: 20 }}>
+                                    Impossible de voir son stream pour le moment...
+                                </span>
+                            </div>
+
+                        }
+                    </div>
+
+                    <div className="stream-div-lidar">
+                        {data === 'Online' ?
+
+                            streamActive ?
+                                <>
+                                    <img src={streamLidar} style={{ width: '100%', height: '100%', objectFit: 'fill' }} />
+
                                 </>
 
                                 :

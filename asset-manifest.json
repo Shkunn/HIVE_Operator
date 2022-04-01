@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/HIVE_Operator/static/css/main.3b6c6353.css",
-    "main.js": "/HIVE_Operator/static/js/main.9ab612f2.js",
+    "main.css": "/HIVE_Operator/static/css/main.0f4ff659.css",
+    "main.js": "/HIVE_Operator/static/js/main.4c105d23.js",
     "index.html": "/HIVE_Operator/index.html",
-    "main.3b6c6353.css.map": "/HIVE_Operator/static/css/main.3b6c6353.css.map",
-    "main.9ab612f2.js.map": "/HIVE_Operator/static/js/main.9ab612f2.js.map"
+    "main.0f4ff659.css.map": "/HIVE_Operator/static/css/main.0f4ff659.css.map",
+    "main.4c105d23.js.map": "/HIVE_Operator/static/js/main.4c105d23.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b6c6353.css",
-    "static/js/main.9ab612f2.js"
+    "static/css/main.0f4ff659.css",
+    "static/js/main.4c105d23.js"
   ]
 }

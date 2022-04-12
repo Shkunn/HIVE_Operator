@@ -1,16 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import RobotCards from '../components/RobotsCards'
 import RobotMap from '../components/RobotMap'
-import io from 'socket.io-client'
 import Navbar from "../components/Navbar";
 
-// const socket = io.connect('http://0.0.0.0:5000')
 
-const socket = io.connect('https://api-devo-docker.herokuapp.com/')
-
-
-
-function Home() {
+function Home({socket}) {
 
     const [active, setActive] = useState(false);
 
@@ -30,6 +24,7 @@ function Home() {
 
                     <RobotCards socket={socket} />
                 </div>
+
 
 
 

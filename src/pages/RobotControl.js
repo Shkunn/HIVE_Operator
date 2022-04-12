@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
 import * as BsIcons from 'react-icons/bs';
@@ -6,13 +6,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import RobotMap from '../components/RobotControlMap'
 import { useGamepads } from 'react-gamepads'
 import Progressbar from '../components/ProgressBar';
-import io from 'socket.io-client'
 import NavbarControlRobot from "../components/NavBarControlRobot";
-
-
-// const socket = io.connect('http://0.0.0.0:5000')
-
-const socket = io.connect('https://api-devo-docker.herokuapp.com/')
 
 
 const buttonLabels = [
@@ -43,10 +37,11 @@ const axesLabels = [
 ]
 
 var timestamp = 0
+var timestamp2 = 0
 
 
 
-function RobotControl() {
+function RobotControl({ socket }) {
 
 
     const robotSelected = useSelector((state) => state.robotReducer.selectedRobot.robot)
@@ -70,6 +65,8 @@ function RobotControl() {
         })
     }, [])
 
+    const [gamepads, setGamepads] = useState([]);
+
 
     var disable = false;
     var angle = 0;
@@ -84,13 +81,13 @@ function RobotControl() {
 
         socket.on('streamVideo', (data) => {
             setStreamVideo(data)
-            console.log(data)
+            // console.log(data)
         })
 
 
         socket.on('streamLidar', (data) => {
             setStreamLidar(data)
-            console.log(data)
+            // console.log(data)
         })
 
 
@@ -172,11 +169,17 @@ function RobotControl() {
         checkedFour ? setCheckedFour(!checkedFour) : setCheckedFour(checkedFour);
     };
 
-    const [gamepads, setGamepads] = useState([]);
     useGamepads(_gamepads => {
-        setGamepads(Object.values(_gamepads))
+        if (Date.now() - timestamp > 50) {
+
+            setGamepads(Object.values(_gamepads))
+
+            timestamp = Date.now()
+
+        }
     })
     if (!gamepads) return '';
+
 
     var data_to_send = []
 
@@ -194,7 +197,7 @@ function RobotControl() {
                                     <button
                                         style={{ padding: 20 }}
                                         onClick={() => {
-                                            modal ? setModal(false) : setModal(true)
+                                            modal ? setModal(false) : setModal(false)
                                         }}
                                     >
                                         Prends le contrôle
@@ -204,7 +207,7 @@ function RobotControl() {
                                     <button
                                         style={{ padding: 20 }}
                                         onClick={() => {
-                                            modal ? setModal(false) : setModal(true)
+                                            modal ? setModal(true) : setModal(true)
                                         }}
                                     >
                                         Envoie des commandes
@@ -292,9 +295,10 @@ function RobotControl() {
                                     </div>
                                     {
                                         gamepads.length > 0 ?
+
                                             gamepads.map((gp, index) => {
 
-                                                if (Date.now() - timestamp > 200) {
+                                                if (Date.now() - timestamp2 > 200) {
 
                                                     socket.emit('operator_command_controller',
                                                         ([
@@ -314,9 +318,10 @@ function RobotControl() {
                                                         ])
                                                     );
 
-                                                    timestamp = Date.now()
+                                                    timestamp2 = Date.now()
 
                                                 }
+
 
                                                 return (
                                                     <div key={index} className='gamepad-data'>

@@ -9,8 +9,8 @@ import RobotControl from "./pages/RobotControl";
 
 import io from 'socket.io-client'
 
-const socket = io.connect('http://0.0.0.0:5000')
-// const socket = io.connect('https://api-devo-docker.herokuapp.com/')
+// const socket = io.connect('http://0.0.0.0:5000')
+const socket = io.connect('https://api-devo-docker.herokuapp.com/')
 
 
 function App() {
